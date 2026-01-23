@@ -1,0 +1,7 @@
+{
+  "name": "PixelFlex - Universal Image Converter",
+  "description": "A high-performance, AI-enhanced image conversion SaaS supporting cross-format conversion between raster and vector formats with quality controls and smart enhancement.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
