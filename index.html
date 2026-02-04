@@ -4,67 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PixelFlex - Universal Image Converter</title>
+    <title>PixelFlex - Pro Image Converter</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-mint: #AFD1C1;
-            --panel-white: #FFFFFF;
-            --border-black: #000000;
+            --bg-main: #050505;
+            --bg-gradient: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 60%);
+            --panel-bg: #121212;
+            --panel-hover: rgba(255, 255, 255, 0.02);
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.4);
+            --text-placeholder: rgba(255, 255, 255, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --input-bg: #1a1a1a;
+            --accent-green: #00E676;
+            --btn-primary-bg: #ffffff;
+            --btn-primary-text: #000000;
         }
+
+        body.light {
+            --bg-main: #f1f5f9;
+            --bg-gradient: radial-gradient(circle at 50% -20%, #e2e8f0 0%, #f1f5f9 60%);
+            --panel-bg: #ffffff;
+            --panel-hover: rgba(0, 0, 0, 0.02);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-placeholder: #94a3b8;
+            --border-subtle: rgba(15, 23, 42, 0.08);
+            --input-bg: #f8fafc;
+            --btn-primary-bg: #0f172a;
+            --btn-primary-text: #ffffff;
+        }
+
         body {
-            font-family: 'Lexend', sans-serif;
-            background-color: var(--bg-mint);
-            color: var(--border-black);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            background-image: var(--bg-gradient);
+            color: var(--text-main);
             overflow-x: hidden;
+            letter-spacing: -0.01em;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .mono {
             font-family: 'JetBrains Mono', monospace;
         }
-        .brutalist-card {
-            background: white;
-            border: 2px solid black;
-            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+
+        .glass-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
-        .brutalist-button {
-            border: 2px solid black;
-            box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
-            transition: all 0.1s;
-            text-transform: uppercase;
-            font-weight: 800;
+
+        .crypto-input {
+            background: var(--input-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-main);
+            transition: all 0.2s;
         }
-        .brutalist-button:active {
-            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
-            transform: translate(2px, 2px);
+
+        .crypto-input::placeholder {
+            color: var(--text-placeholder);
         }
-        .outline-text {
-            color: white;
-            -webkit-text-stroke: 2px black;
-            text-shadow: 4px 4px 0px black;
+
+        .crypto-input:focus {
+            border-color: var(--text-muted);
+            outline: none;
+            background: var(--panel-bg);
         }
-        .info-box {
-            background: white;
-            border: 2px solid black;
-            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
         }
-        /* Custom scrollbar */
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
         ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+            width: 6px;
         }
+
         ::-webkit-scrollbar-track {
-            background: var(--bg-mint);
+            background: transparent;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #000;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            background: var(--border-subtle);
+            border-radius: 10px;
         }
     </style>
 <script type="importmap">
